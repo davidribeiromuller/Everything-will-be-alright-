@@ -164,6 +164,20 @@ class MusicBoxPlayer {
     }
   }
 
+  public playOpenChime() {
+    try {
+      this.initAudio();
+      const chimes = [523.25, 659.25, 783.99, 1046.50];
+      chimes.forEach((freq, idx) => {
+        window.setTimeout(() => {
+          this.playBell(freq, 1.2);
+        }, idx * 120);
+      });
+    } catch {
+      // Audio context might be restricted before interaction
+    }
+  }
+
   public getIsPlaying(): boolean {
     return this.isPlaying;
   }

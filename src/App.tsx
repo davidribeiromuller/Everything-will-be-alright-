@@ -13,6 +13,7 @@ interface ClickSparkle {
 
 export default function App() {
   const [clickSparkles, setClickSparkles] = useState<ClickSparkle[]>([]);
+  const [isLetterOpen, setIsLetterOpen] = useState(false);
 
   // Spawn delicate floating sparkles on tap
   const handleTapSparkle = (x: number, y: number) => {
@@ -62,12 +63,21 @@ export default function App() {
 
       {/* Main Content Area: Centered Comforting Letter */}
       <div className="w-full flex-1 flex items-center justify-center my-auto py-4 relative z-20">
-        <LetterCard onTapSparkle={handleTapSparkle} />
+        <LetterCard
+          onTapSparkle={handleTapSparkle}
+          onOpenStateChange={setIsLetterOpen}
+        />
       </div>
 
       {/* Bottom Subtle Note */}
-      <footer className="w-full max-w-md pb-2 text-center text-[11px] font-['Patrick_Hand'] text-[#9E9480] relative z-20 opacity-80">
-        <span>Toque na carta ou nos personagens para interagir 🤍</span>
+      <footer className="w-full max-w-md pb-2 text-center text-xs font-['Patrick_Hand'] text-[#9E9480] relative z-20 opacity-85">
+        {isLetterOpen ? (
+          <span>Toque na carta ou nos personagens para interagir 🤍</span>
+        ) : (
+          <span className="animate-pulse text-[#7D7360]">
+            Toque na carta para abrir ✉️ 🤍
+          </span>
+        )}
       </footer>
 
       {/* Custom Keyframe Animations */}
