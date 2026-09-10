@@ -1,0 +1,6 @@
+{
+  "name": "Carta de Conforto",
+  "description": "Uma cartinha digital acolhedora e delicada com mensagem de carinho e esperança, inspirada em Frozen e Jack Frost.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
